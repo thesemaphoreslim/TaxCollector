@@ -16,7 +16,7 @@ What you DON'T need:
 
 Limitations:
  - The application does NOT obtain historical reward information. It captures rewards on a current/go-forward basis.
- - The application treats any negative delta (coins leaving the wallet) as a spend, even you are simply moving your balance to a different wallet (cold/hardware/etc). However, you can updated the "SPENT" value in the log file with clarifying text (like "TRANSFERRED TO HARDWARE WALLET").
+ - The application treats any negative delta (coins leaving the wallet) as a spend, even if you are simply moving your balance to a different wallet (cold/hardware/etc). However, you can update the "SPENT" value in the log file with clarifying text (like "TRANSFERRED TO HARDWARE WALLET").
  - When you first run the application (and ONLY on first run), your total wallet balance will be logged to the history file as "ADDED". You can update this text in the log file with something like "INITIAL BALANCE" to avoid confusion at tax time. After the initial run, only deltas will be logged.
 
 TaxCollector.dll.config.
