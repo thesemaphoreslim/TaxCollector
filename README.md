@@ -1,11 +1,11 @@
 # TaxCollector
 
-This application monitors a farmer reward address (Chia) and/or a staking address (Cardano) for changes in balance.  When a wallet balance changes, the delta is recorded along with the current market price (obtained from CMC api).  This information is stored in a pipe-separated (|) text file for use during tax season to calculate income from farming/mining/staking.
+This application monitors a farmer reward address (Chia) and/or a staking address (Cardano) for changes in balance.  When a wallet balance changes, the delta is recorded along with the current market price (obtained from CMC api).  This information is stored in a pipe-separated (|) text file for use during tax season to calculate income from farming/mining/staking (example below).
 
 What you need:
  - The application is writeen in C# so you will need to run it on a Windows PC with at least dotnet version 6.0.
  - A CoinMarketCap API key.  You can obtain a Basic api key for free from https://coinmarketcap.com/api/. This will provide you with a limited number of API calls per 24 hours (more on that later).
- - Your farmer reward address and/or staking address.
+ - Your XCH farmer reward address and/or ADA staking address.
  - You will need to configure a Windows Scheduled Task that runs the TaxCollector app periodically (no more frequently than 5 minutes due to API restrictions).
  - (Optional) A Blockfrost API key.  This is only required if you want to track Cardano staking rewards. This can be obtained for free from blockfrost.io.
  - When you wish to calculate your total income, you will need a spreadsheet application like MS Excel or OpenOffice Calc to import the data. You will import it as a pipe-delimited file and then you can sort by coin, add/spend, and/or datetime.
@@ -16,7 +16,7 @@ What you DON'T need:
 
 Limitations:
  - The application does NOT obtain historical reward information. It captures rewards on a current/go-forward basis.
- - The application treats any negative delta (coins leaving the wallet) as a spend, even you simply are moving your balance to a different wallet (cold/hardware/etc). However, you can updated the "SPENT" value in the log file with clarifying text (like "TRANSFERRED TO HARDWARE WALLET") for use at tax time.
+ - The application treats any negative delta (coins leaving the wallet) as a spend, even you are simply moving your balance to a different wallet (cold/hardware/etc). However, you can updated the "SPENT" value in the log file with clarifying text (like "TRANSFERRED TO HARDWARE WALLET").
 
 TaxCollector.dll.config.
  - balance_keywords: used to determine the coin denomination returned by the api (DO NOT MODIFY)
